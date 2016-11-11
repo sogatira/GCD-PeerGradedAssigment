@@ -5,8 +5,8 @@ activities <- c("WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", 
 
 # vectors which contain the labels of activities of each observation, and we convert it to factor
 
-labelactivities1 <- read.table("test/y_test.txt") 
-labelactivities2 <- read.table("train/y_train.txt") 
+labelactivities1 <- read.table("UCI HAR Dataset/test/y_test.txt") 
+labelactivities2 <- read.table("UCI HAR Dataset/train/y_train.txt") 
 
 labelactivities <- rbind(labelactivities1, labelactivities2)
 
@@ -18,8 +18,8 @@ rm(labelactivities2)
 
 # data sets
 
-testdata  <- read.table("test/x_test.txt")  
-traindata <- read.table("train/x_train.txt")
+testdata  <- read.table("UCI HAR Dataset/test/x_test.txt"  , header = F, colClasses = "numeric")  
+traindata <- read.table("UCI HAR Dataset/train/x_train.txt", header = F, colClasses = "numeric")
 
 data <- rbind(testdata, traindata)
 
@@ -28,7 +28,7 @@ rm(traindata)
 
 # we add raw names / features to variables of the data table
 
-features <- read.table("features.txt") 
+features <- read.table("UCI HAR Dataset/features.txt") 
 names(data) <- features$V2
 
 # we add the variable that contains the name of each activity of each row of the data table
@@ -42,7 +42,7 @@ rm(activity)
 library(dplyr)
 
 data <- tbl_df(data)
-data <- select(data, grep("mean()|std()", names(data)))
+data <- select(data, grep("activity|mean()|std()", names(data)))
 
 # We remove dots on names of variables
 
@@ -59,10 +59,19 @@ names(data) <- gsub(pattern = "^f", replacement = "fft", x = names(data))
 # names(data) <- gsub(pattern = "Acc", replacement = "accelerometer", x = names(data))
 # names(data) <- gsub(pattern = "Gyro", replacement = "gyroscope", x = names(data))
 
-# Finally we 
+# We change the capital letters in the names of variables
 
+names(data) <- tolower(names(data))
 
+# Finally we classify the observations according to the features and we summarize the data to form a the tidy data frame.
 
+data <- group_by(data, activity)
+
+tidydata <- summarise_each(data, funs(mean)) # the tidy data set of the instruction 5. From the data set in step 4,
+                                             # creates a second, independent tidy data set with the average of each
+                                             # variable for each activity and each subject.
+
+# write(names(data), file = "codebook.md")
 
 
 
