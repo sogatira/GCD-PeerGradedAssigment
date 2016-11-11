@@ -15,6 +15,7 @@ A repo where I have put my final project of the course "Getting and Cleaning Dat
 - `./codebook.md` (This contains all information about variables)
 - `./run_analysis.R` (This contains all the instruction to get from raw/separated data set to tidy data set)
 - `./README.md` (This is this file)
+- `./tidydataset.txt` (This contains the tidy data set)
 
 
 You have to run the file `./run_analysis.R` to do the analysis and obtain the tidy data set.

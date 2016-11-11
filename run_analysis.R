@@ -73,6 +73,8 @@ tidydata <- summarise_each(data, funs(mean)) # the tidy data set of the instruct
 
 # write(names(data), file = "codebook.md")
 
+# write.table(tidydata, file = "tidydataset.txt", row.names = F)
+
 
 
 
