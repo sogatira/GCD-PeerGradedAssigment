@@ -1,5 +1,5 @@
 
-EXPLANATION:
+## EXPLANATION
 
 We hace variables that come from time measures (which have prefixed with time-), and variables that come from an adjustment of the Fast Fourier Transform (which have prefixed with fft-). 
 
@@ -7,11 +7,11 @@ Indeed, que have variables that comes to take measures with two different objets
 
 Finally, as the space has three dimensions, there are some variables that end with the letter x, y or z. This refers to the axis of the space.
 
-UNITS:
+## UNITS
 
 The variables which come to the gyroscope are in radian/s. 
 
-LIST OF VARIABLES:
+## LIST OF VARIABLES
 
 activity <- This variables describes the activity from which the data comes. This variable take the values: WALKING,      WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING. 
 
