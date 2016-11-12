@@ -3,7 +3,7 @@
 
 activities <- c("WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING")
 
-# vectors which contain the labels of activities of each observation, and we convert it to factor
+# this are the vectors which contain the labels of activities of each observation, and we convert it to factor
 
 labelactivities1 <- read.table("UCI HAR Dataset/test/y_test.txt") 
 labelactivities2 <- read.table("UCI HAR Dataset/train/y_train.txt") 
@@ -16,12 +16,12 @@ rm(labelactivities)
 rm(labelactivities1)
 rm(labelactivities2)
 
-# data sets
+# this are the data sets which we are going to merge
 
 testdata  <- read.table("UCI HAR Dataset/test/x_test.txt"  , header = F, colClasses = "numeric")  
 traindata <- read.table("UCI HAR Dataset/train/x_train.txt", header = F, colClasses = "numeric")
 
-data <- rbind(testdata, traindata)
+data <- rbind(testdata, traindata) # merge the data
 
 rm(testdata)
 rm(traindata)

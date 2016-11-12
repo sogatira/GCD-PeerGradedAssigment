@@ -1,7 +1,10 @@
+## Analysis
+
+You can open the `run_analysis.R` to see what I do with the raw data in order to obtain a tidy data set that I describe below. In this file I comment the code to explain the analysis.
 
 ## EXPLANATION
 
-We hace variables that come from time measures (which have prefixed with time-), and variables that come from an adjustment of the Fast Fourier Transform (which have prefixed with fft-). 
+We have variables that come from time measures (which have prefixed with time-), and variables that come from an adjustment of the Fast Fourier Transform (which have prefixed with fft-). 
 
 Indeed, que have variables that comes to take measures with two different objets, an accelerometer (variables which contain acc in their names) and a gyroscope (variables which contain gyro in their names)
 
